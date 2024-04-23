@@ -1,24 +1,55 @@
-// Please fill in below.
-// <Your name>
-// <Your section number> (e.g. CPSC 121L-01)
-// <Date>
-// <Your csu.fullerton.edu email>
-// <Your GitHub username>
+// Jemin Song
+// CPSC 121L-02
+// 02-23-24
+// jeminsong0119@csu.fullerton.edu
+// @jeminsong
 //
 // Lab 11-1
-// If it is a pair programming lab please specify partner below.
-// Partner: @peteranteater
 
 #include "customer.h"
 
-// ========================= YOUR CODE HERE =========================
-// This implementation file (customer.cc) is where you should implement
-// the member functions declared in the header (customer.h), only
-// if you didn't implement them inline within customer.h.
-//
-// Remember to specify the name of the class with :: in this format:
-//     <return type> MyClassName::MyFunction() {
-//        ...
-//     }
-// to tell the compiler that each function belongs to the Customer class.
-// ===================================================================
+Customer::Customer(const std::string& name, int product_count,
+                   const std::shared_ptr<Customer>& next_customer)
+    : name_(name),
+      product_count_(product_count),
+      next_customer_(next_customer) {}
+
+std::string Customer::GetName() const {
+  return name_;
+}
+
+int Customer::GetProductCount() const {
+  return product_count_;
+}
+
+std::shared_ptr<Customer> Customer::GetNextCustomer() const {
+  return next_customer_;
+}
+
+int Customer::TotalCustomersInLine() {
+  if (!next_customer_) {
+    return 1;
+  } else {
+    return 1 + next_customer_->TotalCustomersInLine();
+  }
+}
+
+int Customer::TotalProductsInLine() {
+  if (!next_customer_) {
+    return product_count_;
+  } else {
+    return product_count_ + next_customer_->TotalProductsInLine();
+  }
+}
+
+std::string Customer::FirstAlphabeticalCustomerInLine() {
+  if (!next_customer_) {
+    return name_;
+  } else {
+    std::string first_alphabetical =
+        name_ < next_customer_->FirstAlphabeticalCustomerInLine()
+            ? name_
+            : next_customer_->FirstAlphabeticalCustomerInLine();
+    return first_alphabetical;
+  }
+}

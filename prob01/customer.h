@@ -1,30 +1,33 @@
-// Please fill in below.
-// <Your name>
-// <Your section number> (e.g. CPSC 121L-01)
-// <Date>
-// <Your csu.fullerton.edu email>
-// <Your GitHub username>
+// Jemin Song
+// CPSC 121L-02
+// 02-23-24
+// jeminsong0119@csu.fullerton.edu
+// @jeminsong
 //
 // Lab 11-1
-// If it is a pair programming lab please specify partner below.
-// Partner: @peteranteater
+#ifndef CUSTOMER_H
+#define CUSTOMER_H
 
 #include <memory>
 #include <string>
 
 class Customer {
  public:
-  // ====================== YOUR CODE HERE ======================
-  // 1. Define a constructor using member initializer list syntax
-  //    according to the README.
-  // 2. Define the accessor functions (i.e. the getter functions)
-  //    `GetName`, `GetProductCount`, and `GetNextCustomer`.
-  //    You do not need to create mutator functions (setters).
-  // 3. Define the recursive functions specified in the README.
-  // ============================================================
+  Customer(const std::string& name, int product_count,
+           const std::shared_ptr<Customer>& next_customer);
+
+  std::string GetName() const;
+  int GetProductCount() const;
+  std::shared_ptr<Customer> GetNextCustomer() const;
+
+  int TotalCustomersInLine();
+  int TotalProductsInLine();
+  std::string FirstAlphabeticalCustomerInLine();
 
  private:
   std::string name_;
   int product_count_;
   std::shared_ptr<Customer> next_customer_;
 };
+
+#endif

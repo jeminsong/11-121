@@ -1,13 +1,9 @@
-// Please fill in below.
-// <Your name>
-// <Your section number> (e.g. CPSC 121L-01)
-// <Date>
-// <Your csu.fullerton.edu email>
-// <Your GitHub username>
-//
-// Lab 1-2
-// If it is a pair programming lab please specify partner below.
-// Partner: @peteranteater
+// Jemin Song
+// CPSC 121L-02
+// 02-23-24
+// jeminsong0119@csu.fullerton.edu
+// @jeminsong
+// Lab 11-2
 
 #include <memory>
 #include <string>
@@ -29,15 +25,11 @@ class Train {
   std::shared_ptr<Train> GetNextCarriage() const {
     return next_carriage_;
   }
-  // ====================== YOUR CODE HERE ======================
-  // Define the following recursive member functions, according
-  // to the instructions in the README:
-  //
-  //   1. TotalTrainPassengers
-  //   2. MaxCarriagePassengers
-  //   3. IsTrainFull
-  //   4. AddCarriageToEnd
-  // ============================================================
+
+  int TotalTrainPassengers();
+  int MaxCarriagePassengers();
+  bool IsTrainFull();
+  void AddCarriageToEnd(std::shared_ptr<Train> new_carriage);
 
  private:
   int passenger_count_;

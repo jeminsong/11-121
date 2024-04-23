@@ -1,13 +1,9 @@
-// Please fill in below.
-// <Your name>
-// <Your section number> (e.g. CPSC 121L-01)
-// <Date>
-// <Your csu.fullerton.edu email>
-// <Your GitHub username>
-//
+// Jemin Song
+// CPSC 121L-02
+// 02-23-24
+// jeminsong0119@csu.fullerton.edu
+// @jeminsong
 // Lab 11-1
-// If it is a pair programming lab please specify partner below.
-// Partner: @peteranteater
 
 #include <iostream>
 #include <memory>
@@ -30,25 +26,14 @@ int main() {
       std::make_shared<Customer>("Adele", 4, kehlani);
 
   std::cout << "Total customers waiting: ";
-  // =================== YOUR CODE HERE ===================
-  // 1. Print out the total number of customers waiting
-  //    in line by invoking TotalCustomersInLine.
-  // ======================================================
-  std::cout << std::endl;
+
+  std::cout << adele->TotalCustomersInLine() << std::endl;
 
   std::cout << "Total products to be purchased: ";
-  // =================== YOUR CODE HERE ===================
-  // 2. Print out the total number of products held by
-  //    customers in line by invoking TotalProductsInLine.
-  // ======================================================
-  std::cout << std::endl;
+  std::cout << adele->TotalProductsInLine() << std::endl;
 
   std::cout << "First customer name alphabetically: ";
-  // =================== YOUR CODE HERE ===================
-  // 3. Print out the name of the customer in line whose
-  //    name comes first alphabetically by invoking
-  //    FirstAlphabeticalCustomerInLine.
-  // ======================================================
-  std::cout << std::endl;
+  std::cout << adele->FirstAlphabeticalCustomerInLine() << std::endl;
+
   return 0;
 }
